@@ -19,23 +19,34 @@ module.exports = {
   module: {
     // in module property, we specify different rules for different types of files
     rules: [
-      {
-        // we apply css-loader & style-loader to all css files
-        /*
+      // we apply css-loader & style-loader to all css files
+      /*
         ABOUT CSS LOADER
         css-loader takes css
         AND
-        turns it into valid javascript code (i.e., into a string)
+        turns it into commonJS code - valid javascript code
         AND
         adds that code to the bundled .js file
-        */
-        /*
+      */
+      /*
         ABOUT STYLE LOADER
-        style-loader takes the css code that is converted to javascript from the bundled .js file and injects it into DOM using the <style> tag
-        */
+        style-loader takes the commonJS css code from the bundled .js file and injects it into DOM by placing a <style> tag in the HEAD section of the HTML page and adding all the styles in that <style> tag
+        NOTE: thus for each css file that webpack encounters, style-loader will place a separate <style> tag in the HEAD section of the HTML page
+      */
+      {
         test: /\.css$/,
         // NOTE: order is important here
         use: ["style-loader", "css-loader"],
+      },
+      // we apply sass-loader, css-loader & style-loader to all scss files
+      /*
+        ABOUT SASS LOADER
+        sass-loader converts sass into css
+      */
+      {
+        test: /\.scss$/,
+        // NOTE: order is important here
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
     ],
   },
