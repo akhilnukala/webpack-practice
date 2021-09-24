@@ -2,10 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-    />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link
       rel="stylesheet"
@@ -61,11 +57,14 @@
       thus, this won't be scalable in an application with 100's of dependencies
   -->
 
-  <script src="./dist/main.js"></script>
+  <!-- <script src="./dist/main.js"></script> -->
 
   <!-- PROS - of using webpack -->
 
   <!-- 1. We only need to include a single bundled .js file that is compiled by webpack -->
-
   <!-- 2. we dont need to specify which file/script should load first -->
+
+  <!-- CONS - of using adding a bundled js file in HTML -->
+
+  <!-- 1. we cannot use a content-hashed bundle file, since there's no way to know what the name of the bundle file would be at runtime -->
 </html>
